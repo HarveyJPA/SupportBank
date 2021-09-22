@@ -1,18 +1,21 @@
 package training.supportbank;
 
+import java.math.BigDecimal;
+
 public class Account {
-    private static String BANKID;
-    private Float balance;
+    private final String BANKID;
+    private BigDecimal balance;
+
     public Account (String initBankID) {
         BANKID = initBankID;
     }
     public String getBANKID () {
         return BANKID;
     }
-    public Float getBalance () {
+    public BigDecimal getBalance () {
         return balance;
     }
-    public void setBalance (Float newBalance) {
-        this.balance += newBalance;
+    public void setBalance (BigDecimal balanceChange) {
+        balance = balance.add(balanceChange);
     }
 }
