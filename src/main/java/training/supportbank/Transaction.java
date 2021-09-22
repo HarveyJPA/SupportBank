@@ -16,6 +16,23 @@ public class Transaction {
         NOTE = initNOTE;
         AMOUNT = initAMOUNT;
     }
+
+    public String getNOTE() {
+        return NOTE;
+    }
+
+    public Account getTO() {
+        return TO;
+    }
+
+    public Account getFROM() {
+        return FROM;
+    }
+
+    public String getDATE() {
+        return DATE;
+    }
+
     public BigDecimal getAMOUNT() {
         return AMOUNT;
     }
