@@ -9,30 +9,28 @@ import java.util.List;
 
 public class Main {
 
+    private List<Account> accountList;
+    private List<Transaction> transactionList;
+
     public static void main(String args[]) {
         try {
-            System.out.print(importCSV());
+            System.out.println(importTransactions());
         } catch (Exception  e) {
             e.printStackTrace();
         }
     }
 
-    private static List<String[]> readCSV(Reader reader) throws Exception {
+    private static List<String[]> importTransactions() throws Exception {
+        String filePath = "Transactions2014.csv";
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
         List<String[]> list = new ArrayList<>();
-        CSVReader csvReader = new CSVReader(reader);
+        CSVReader csvReader = new CSVReader(bufferedReader);
         String[] line;
         while ((line = csvReader.readNext()) != null) {
             list.add(line);
         }
-        reader.close();
+        bufferedReader.close();
         csvReader.close();
         return list;
     }
-
-    private static String importCSV() throws Exception {
-        String filePath = "Transactions2014.csv";
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
-        return readCSV(bufferedReader).toString();
-    }
-
 }
